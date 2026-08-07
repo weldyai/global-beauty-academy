@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "../../globals.css";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { FloatingSeatsBar } from "@/components/floating-seats-bar";
 
 const cairo = Cairo({
   variable: "--font-heading",
@@ -19,9 +20,9 @@ const siteUrl = "https://www.globalbeautyacademy.ma";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "أكاديمية جلوبال بيوتي | تكوين معتمد في المكياج وتصفيف الشعر وفن الأظافر بالدار البيضاء",
+  title: "تكوين Makeup Artist بالدار البيضاء | أكاديمية جلوبال بيوتي",
   description:
-    "أكاديمية جلوبال بيوتي (GBA) تكوّن خبيرات المكياج (Makeup Artist) وتصفيف الشعر وفن الأظافر بالدار البيضاء. تكوين احترافي معتمد، أستاذات خبيرات، إدماج مهني مضمون.",
+    "تكوين مكياج احترافي معتمد بالدار البيضاء (عين الشق) — 4500 درهم، 12 حصة، أستاذات خبيرات، مواكبة نحو الإدماج المهني. دورة عادية أو عطلة نهاية الأسبوع. تصفيف الشعر وفن الأظافر كخيارات إضافية.",
   alternates: {
     canonical: "/ar",
     languages: {
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
     locale: "ar_MA",
     url: `${siteUrl}/ar`,
     siteName: "Global Beauty Academy",
-    title: "أكاديمية جلوبال بيوتي | تكوين معتمد بالدار البيضاء",
-    description: "كوني خبيرة معتمدة في المكياج، تصفيف الشعر أو فن الأظافر بالدار البيضاء.",
+    title: "تكوين Makeup Artist بالدار البيضاء | أكاديمية جلوبال بيوتي",
+    description: "كوني Makeup Artist معتمدة بالدار البيضاء — 4500 درهم، 12 حصة.",
   },
 };
 
@@ -63,7 +64,17 @@ const jsonLd = {
     "@type": "OfferCatalog",
     name: "تكوينات أكاديمية جلوبال بيوتي",
     itemListElement: [
-      { "@type": "Course", name: "المكياج الاحترافي (Makeup Artist)" },
+      {
+        "@type": "Course",
+        name: "المكياج الاحترافي (Makeup Artist)",
+        description: "التكوين الرئيسي، 12 حصة، دورة عادية أو عطلة نهاية الأسبوع.",
+        offers: {
+          "@type": "Offer",
+          price: "4500",
+          priceCurrency: "MAD",
+          availability: "https://schema.org/LimitedAvailability",
+        },
+      },
       { "@type": "Course", name: "تصفيف الشعر والستايلينغ" },
       { "@type": "Course", name: "فن الأظافر (Nail Art)" },
     ],
@@ -86,6 +97,7 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ScrollProgress />
+        <FloatingSeatsBar lang="ar" />
         {children}
       </body>
     </html>

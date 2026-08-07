@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "../globals.css";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { FloatingSeatsBar } from "@/components/floating-seats-bar";
 
 const playfair = Playfair_Display({
   variable: "--font-heading",
@@ -20,11 +21,11 @@ const siteUrl = "https://www.globalbeautyacademy.ma";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Global Beauty Academy | Formation Makeup Artist, Coiffure & Onglerie à Casablanca",
+    default: "Formation Makeup Artist Casablanca | Global Beauty Academy",
     template: "%s | Global Beauty Academy",
   },
   description:
-    "Global Beauty Academy (GBA) forme les futures makeup artists, coiffeuses et spécialistes de l'onglerie/nail art à Casablanca. Formation professionnelle certifiante, formatrices expertes, insertion pro garantie.",
+    "Formation Makeup Artist certifiante à Casablanca (Aîn-Chock) — 4 500 DH, 12 séances, formatrices expertes, insertion pro accompagnée. Cours accéléré ou week-end. Coiffure et onglerie/nail art en option.",
   alternates: {
     canonical: "/",
     languages: {
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
     locale: "fr_MA",
     url: siteUrl,
     siteName: "Global Beauty Academy",
-    title: "Global Beauty Academy | Formation Makeup Artist, Coiffure & Onglerie à Casablanca",
+    title: "Formation Makeup Artist Casablanca | Global Beauty Academy",
     description:
-      "Devenez une experte certifiée en maquillage, coiffure ou onglerie. Formations professionnelles à Casablanca, Aîn-Chock.",
+      "Devenez Makeup Artist certifiée à Casablanca — 4 500 DH, 12 séances, cours accéléré ou week-end.",
   },
 };
 
@@ -68,7 +69,17 @@ const jsonLd = {
     "@type": "OfferCatalog",
     name: "Formations Global Beauty Academy",
     itemListElement: [
-      { "@type": "Course", name: "Maquillage Professionnel (Makeup Artist)" },
+      {
+        "@type": "Course",
+        name: "Maquillage Professionnel (Makeup Artist)",
+        description: "Formation phare, 12 séances, cours accéléré ou week-end.",
+        offers: {
+          "@type": "Offer",
+          price: "4500",
+          priceCurrency: "MAD",
+          availability: "https://schema.org/LimitedAvailability",
+        },
+      },
       { "@type": "Course", name: "Coiffure & Styling" },
       { "@type": "Course", name: "Onglerie & Nail Art" },
     ],
@@ -91,6 +102,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ScrollProgress />
+        <FloatingSeatsBar lang="fr" />
         {children}
       </body>
     </html>

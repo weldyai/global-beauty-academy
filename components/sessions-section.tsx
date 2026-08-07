@@ -1,10 +1,10 @@
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { SeatsCounter } from "@/components/seats-counter";
 
 const content = {
   fr: {
-    title: "Sessions en cours — Formation Makeup Artist",
+    badge: "Session en cours",
+    title: "Formation Makeup Artist — Formule phare",
     subtitle: "12 séances, certificat à la clé. Deux formules selon votre disponibilité.",
     priceNow: "4 500 DH",
     priceBefore: "5 500 DH",
@@ -23,7 +23,8 @@ const content = {
     cta: "Réserver ma place",
   },
   ar: {
-    title: "الدورات الحالية — تكوين مكياج احترافي",
+    badge: "الدورة جارية حاليًا",
+    title: "تكوين المكياج الاحترافي — البرنامج الرئيسي",
     subtitle: "12 حصة، شهادة في النهاية. صيغتان حسب توفرك.",
     priceNow: "4500 درهم",
     priceBefore: "5500 درهم",
@@ -49,7 +50,9 @@ export function SessionsSection({ lang = "fr" }: { lang?: "fr" | "ar" }) {
     <section id="sessions" className="mx-auto max-w-6xl px-6 py-24">
       <BlurFade>
         <div className="mb-4 flex justify-center">
-          <SeatsCounter lang={lang} />
+          <span className="rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+            {t.badge}
+          </span>
         </div>
         <h2 className="mb-2 text-center font-heading text-3xl font-semibold md:text-4xl">
           {t.title}

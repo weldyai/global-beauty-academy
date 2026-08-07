@@ -18,6 +18,10 @@ const content = {
         a: "Non, nos formations en maquillage, coiffure et onglerie/nail art sont ouvertes aux débutantes comme aux personnes en reconversion professionnelle, sans prérequis scolaire.",
       },
       {
+        q: "Quel est le prix de la formation Makeup Artist ?",
+        a: "La formation Makeup Artist coûte 4 500 DH au lieu de 5 500 DH, pour 12 séances avec certificat à la clé. Deux formules : cours accéléré (lundi/mardi/jeudi) ou cours week-end.",
+      },
+      {
         q: "La formation est-elle certifiante ?",
         a: "Oui, chaque formation débouche sur un certificat reconnu remis à la fin du cursus, attestant de la maîtrise des techniques enseignées.",
       },
@@ -27,7 +31,7 @@ const content = {
       },
       {
         q: "Combien de temps dure la formation ?",
-        a: "La durée varie selon le programme choisi (maquillage, coiffure ou onglerie), de quelques semaines pour l'initiation à plusieurs mois pour un cursus complet certifiant.",
+        a: "La formation Makeup Artist se déroule sur 12 séances : en cours accéléré (3 semaines à raison de 3 séances/semaine) ou en cours week-end (6 semaines à raison de 2 séances/semaine).",
       },
       {
         q: "Un accompagnement vers l'emploi est-il proposé après la formation ?",
@@ -43,6 +47,10 @@ const content = {
         a: "لا، تكويناتنا في المكياج وتصفيف الشعر وفن الأظافر مفتوحة للمبتدئات وكذلك لمن يرغبن في تغيير المسار المهني، دون شرط دراسي مسبق.",
       },
       {
+        q: "كم يكلف تكوين Makeup Artist؟",
+        a: "يكلف تكوين Makeup Artist 4500 درهم بدلاً من 5500 درهم، لمدة 12 حصة مع شهادة في النهاية. صيغتان: الدورة العادية (الاثنين/الثلاثاء/الخميس) أو دورة عطلة نهاية الأسبوع.",
+      },
+      {
         q: "هل التكوين معتمد؟",
         a: "نعم، كل تكوين يُتوَّج بشهادة معترف بها تُسلَّم في نهاية المسار، تثبت إتقان التقنيات المُدرَّسة.",
       },
@@ -52,7 +60,7 @@ const content = {
       },
       {
         q: "كم تدوم مدة التكوين؟",
-        a: "تختلف المدة حسب البرنامج المختار (مكياج، تصفيف شعر أو فن الأظافر)، من بضعة أسابيع للتكوين التمهيدي إلى عدة أشهر للمسار الكامل المعتمد.",
+        a: "يمتد تكوين Makeup Artist على 12 حصة: في الدورة العادية (3 أسابيع بمعدل 3 حصص أسبوعيًا) أو في دورة عطلة نهاية الأسبوع (6 أسابيع بمعدل حصتين أسبوعيًا).",
       },
       {
         q: "هل هناك مواكبة للتوظيف بعد التكوين؟",
@@ -80,7 +88,7 @@ export function FaqSection({ lang = "fr" }: { lang?: "fr" | "ar" }) {
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
                 {item.a}
-                {i === 2 && (
+                {i === 3 && (
                   <Link
                     href={lang === "ar" ? onlineLink.ar : onlineLink.fr}
                     className="ms-1 cursor-pointer text-accent underline underline-offset-2 hover:text-primary"

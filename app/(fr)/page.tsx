@@ -9,18 +9,14 @@ import { SessionsSection } from "@/components/sessions-section";
 import { FaqSection, faqJsonLd } from "@/components/faq-section";
 import { FinalCta } from "@/components/final-cta";
 
-const programs = [
-  {
-    title: "Maquillage Professionnel",
-    desc: "Techniques mariée, soirée et éditorial, produits professionnels, certification incluse.",
-  },
+const upsells = [
   {
     title: "Coiffure & Styling",
-    desc: "Coupe, coloration, chignons mariée, tendances 2026.",
+    desc: "Coupe, coloration, chignons mariée, tendances 2026. En complément de votre formation makeup.",
   },
   {
     title: "Onglerie & Nail Art",
-    desc: "Pose gel/résine, nail art, techniques longue tenue, matériel professionnel.",
+    desc: "Pose gel/résine, nail art, techniques longue tenue. En complément de votre formation makeup.",
   },
 ];
 
@@ -47,14 +43,14 @@ export default function Home() {
           </BlurFade>
           <BlurFade delay={0.2}>
             <h1 className="max-w-3xl font-heading text-4xl font-semibold leading-tight text-balance md:text-6xl">
-              Devenez une <span className="text-primary">experte certifiée</span> en beauté à Casablanca
+              Devenez <span className="text-primary">Makeup Artist certifiée</span> à Casablanca
             </h1>
           </BlurFade>
           <BlurFade delay={0.3}>
             <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-              Global Beauty Academy (GBA) forme les futures makeup artists, coiffeuses et
-              spécialistes de l&apos;onglerie/nail art à Aîn-Chock, Casablanca — formation
-              certifiante, plateau technique complet, insertion professionnelle accompagnée.
+              Global Beauty Academy (GBA) forme les futures makeup artists professionnelles à
+              Aîn-Chock, Casablanca — formation certifiante, plateau technique complet,
+              insertion professionnelle accompagnée. Coiffure et onglerie en option.
             </p>
           </BlurFade>
           <BlurFade delay={0.4}>
@@ -85,18 +81,44 @@ export default function Home() {
         <section id="formations" className="mx-auto max-w-6xl px-6 py-24">
           <BlurFade>
             <h2 className="mb-2 text-center font-heading text-3xl font-semibold md:text-4xl">
-              Nos formations certifiantes
+              Notre formation phare
             </h2>
             <p className="mx-auto mb-14 max-w-xl text-center text-muted-foreground">
-              Des cursus intensifs encadrés par des formatrices expertes, plateau technique
-              professionnel, certification reconnue.
+              Le cursus le plus demandé, encadré par des formatrices expertes, plateau
+              technique professionnel, certification reconnue.
             </p>
           </BlurFade>
-          <div className="grid gap-6 md:grid-cols-3">
-            {programs.map((p, i) => (
+          <BlurFade>
+            <div className="rounded-3xl border border-primary/20 bg-card p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 md:p-14">
+              <span className="mb-4 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+                Formation phare
+              </span>
+              <h3 className="mb-4 font-heading text-3xl font-semibold text-primary">
+                Maquillage Professionnel — Makeup Artist
+              </h3>
+              <p className="max-w-2xl text-muted-foreground">
+                Techniques mariée, soirée et éditorial, produits professionnels, posture
+                business pour démarrer en freelance. 12 séances, certificat à la clé.
+              </p>
+              <a
+                href="#sessions"
+                className="mt-6 inline-block cursor-pointer rounded-full border border-primary/40 px-6 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                Voir les sessions & tarifs
+              </a>
+            </div>
+          </BlurFade>
+
+          <BlurFade delay={0.15}>
+            <p className="mb-6 mt-16 text-center text-sm uppercase tracking-widest text-muted-foreground">
+              En complément, une fois makeup maîtrisé
+            </p>
+          </BlurFade>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {upsells.map((p, i) => (
               <BlurFade key={p.title} delay={0.1 * i}>
-                <div className="group rounded-2xl border border-primary/10 bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
-                  <h3 className="mb-3 font-heading text-xl font-semibold text-primary">
+                <div className="rounded-2xl border border-primary/10 bg-card/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/25">
+                  <h3 className="mb-2 font-heading text-lg font-semibold text-accent">
                     {p.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">{p.desc}</p>
