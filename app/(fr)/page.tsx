@@ -81,7 +81,7 @@ export default function Home() {
         <section id="formations" className="mx-auto max-w-6xl px-6 py-24">
           <BlurFade>
             <h2 className="mb-2 text-center font-heading text-3xl font-semibold md:text-4xl">
-              Notre formation phare
+              Formation Makeup Artist
             </h2>
             <p className="mx-auto mb-14 max-w-xl text-center text-muted-foreground">
               Le cursus le plus demandé, encadré par des formatrices expertes, plateau
@@ -90,8 +90,8 @@ export default function Home() {
           </BlurFade>
           <BlurFade>
             <div className="rounded-3xl border border-primary/20 bg-card p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 md:p-14">
-              <span className="mb-4 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-                Formation phare
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                4 500 DH <span className="text-primary/60 line-through">5 500 DH</span>
               </span>
               <h3 className="mb-4 font-heading text-3xl font-semibold text-primary">
                 Maquillage Professionnel — Makeup Artist

@@ -81,7 +81,7 @@ export default function HomeAr() {
         <section id="formations" className="mx-auto max-w-6xl px-6 py-24">
           <BlurFade>
             <h2 className="mb-2 text-center font-heading text-3xl font-semibold md:text-4xl">
-              تكويننا الرئيسي
+              تكوين Makeup Artist
             </h2>
             <p className="mx-auto mb-14 max-w-xl text-center text-muted-foreground">
               البرنامج الأكثر طلبًا، تؤطره أستاذات خبيرات، وسائل تقنية احترافية، شهادة معترف بها.
@@ -89,8 +89,8 @@ export default function HomeAr() {
           </BlurFade>
           <BlurFade>
             <div className="rounded-3xl border border-primary/20 bg-card p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 md:p-14">
-              <span className="mb-4 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-                التكوين الرئيسي
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                4500 درهم <span className="text-primary/60 line-through">5500 درهم</span>
               </span>
               <h3 className="mb-4 font-heading text-3xl font-semibold text-primary">
                 المكياج الاحترافي — Makeup Artist
