@@ -9,29 +9,29 @@ const content = {
     left: (n: number) => `${n} place${n > 1 ? "s" : ""} disponible${n > 1 ? "s" : ""}`,
     reserved: "Une place vient d'être réservée",
     promo: "4 500 DH au lieu de 5 500 DH",
-    cta: "Réserver",
   },
   ar: {
     live: "الدورة جارية",
     left: (n: number) => `${n} أماكن متبقية`,
     reserved: "تم للتو حجز مكان",
     promo: "4500 درهم بدلاً من 5500 درهم",
-    cta: "احجزي",
   },
 };
 
 function WhatsAppIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="size-5 shrink-0 fill-[#25D366]" aria-hidden="true">
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.79 2.4a8.18 8.18 0 0 1 2.41 5.84c0 4.55-3.7 8.25-8.25 8.25a8.24 8.24 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.55 3.71-8.25 8.29-8.25Zm-4.6 4.6c-.17 0-.44.06-.67.32-.23.25-.87.85-.87 2.08s.9 2.41 1.02 2.58c.13.17 1.75 2.78 4.31 3.79 2.13.84 2.56.68 3.03.63.46-.04 1.49-.6 1.7-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.17-.48-.29-.25-.13-1.5-.74-1.73-.82-.23-.08-.4-.13-.57.13-.17.25-.65.82-.8 1-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.4-.79-1.91-.2-.5-.42-.44-.57-.44Z" />
+    <svg viewBox="0 0 24 24" fill="currentColor" className="size-7">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.118 1.528 5.849L.073 23.927l6.235-1.435A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.656-.497-5.19-1.367l-.372-.216-3.7.852.878-3.592-.24-.384A9.945 9.945 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
     </svg>
   );
 }
 
 export function FloatingSeatsBar({ lang = "fr" }: { lang?: "fr" | "ar" }) {
   const t = content[lang];
+  const isAr = lang === "ar";
   const [seats, setSeats] = useState(3);
   const [justReserved, setJustReserved] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const hasReserved = useRef(false);
 
   useEffect(() => {
@@ -51,45 +51,70 @@ export function FloatingSeatsBar({ lang = "fr" }: { lang?: "fr" | "ar" }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const target = document.getElementById("sessions");
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHidden(entry.isIntersecting),
+      { rootMargin: "-10% 0px -10% 0px" }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
+  const side = isAr ? "left" : "right";
+
   return (
-    <div
-      className={`fixed bottom-4 z-50 flex flex-col items-end gap-2 ${lang === "ar" ? "left-4 items-start" : "right-4"}`}
-    >
+    <>
       <AnimatePresence>
-        {justReserved && (
-          <motion.p
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 6 }}
-            className="rounded-full bg-background/90 px-3 py-1 text-xs text-accent shadow-lg backdrop-blur"
+        {!hidden && (
+          <motion.a
+            href="https://wa.me/212666808222"
+            initial={{ opacity: 0, x: isAr ? -12 : 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: isAr ? -12 : 12, pointerEvents: "none" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed bottom-6 z-50 rounded-2xl border border-primary/25 bg-background/90 px-4 py-3 shadow-2xl shadow-black/30 backdrop-blur-lg"
+            style={{ [side]: 96 } as React.CSSProperties}
           >
-            {t.reserved}
-          </motion.p>
+            <div className="mb-1.5 flex items-center gap-1.5">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-destructive opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-destructive" />
+              </span>
+              <span className="text-[10px] font-bold uppercase tracking-wide text-destructive">
+                {t.live}
+              </span>
+            </div>
+            <p className="text-sm font-semibold text-foreground">{t.left(seats)}</p>
+            <p className="text-xs font-medium text-primary">{t.promo}</p>
+            <AnimatePresence>
+              {justReserved && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="mt-1 text-[11px] text-accent"
+                >
+                  {t.reserved}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.a>
         )}
       </AnimatePresence>
+
       <a
         href="https://wa.me/212666808222"
-        className="relative flex cursor-pointer items-center gap-3 rounded-2xl border border-destructive/40 bg-background/95 py-2.5 pe-3 ps-4 shadow-2xl shadow-destructive/10 backdrop-blur transition-transform hover:scale-105"
+        aria-label="WhatsApp"
+        className="wa-float fixed bottom-6 z-50 flex size-14 items-center justify-center rounded-full text-white transition-transform hover:scale-110"
+        style={{
+          [side]: 20,
+          background: "linear-gradient(135deg, #25d366, #128c7e)",
+        } as React.CSSProperties}
       >
-        <span className="absolute -inset-px -z-10 animate-pulse rounded-2xl bg-destructive/10 [animation-duration:2s]" />
-        <div className="flex flex-col gap-0.5">
-          <div className="flex items-center gap-1.5">
-            <span className="relative flex size-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-destructive opacity-75" />
-              <span className="relative inline-flex size-2.5 rounded-full bg-destructive" />
-            </span>
-            <span className="text-xs font-bold uppercase tracking-wide text-destructive">
-              {t.live}
-            </span>
-            <span className="text-sm font-bold text-foreground">· {t.left(seats)}</span>
-          </div>
-          <span className="text-[11px] font-medium text-primary">{t.promo}</span>
-        </div>
-        <span className="flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground">
-          <WhatsAppIcon />
-          {t.cta}
-        </span>
+        <WhatsAppIcon />
       </a>
-    </div>
+    </>
   );
 }
