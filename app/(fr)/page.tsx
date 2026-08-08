@@ -39,9 +39,9 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-25"
+            className="object-cover object-[70%_20%] opacity-55 md:object-center md:opacity-30"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/15 via-background/65 to-background md:from-background/40 md:via-background/80" />
           <div className="pointer-events-none absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_50%_20%,rgba(212,175,55,0.12),transparent_60%)] [animation-duration:5s]" />
           <div className="pointer-events-none absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_80%_70%,rgba(217,169,160,0.1),transparent_55%)] [animation-duration:7s] [animation-delay:1.5s]" />
           <BlurFade delay={0.1}>
