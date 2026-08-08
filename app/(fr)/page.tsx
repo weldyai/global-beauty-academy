@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
@@ -32,6 +33,15 @@ export default function Home() {
       <SiteHeader lang="fr" />
       <main className="flex-1">
         <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pt-24 text-center">
+          <Image
+            src="/generated/hero.png"
+            alt="Formatrice makeup artist en plein travail à Global Beauty Academy"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-25"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
           <div className="pointer-events-none absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_50%_20%,rgba(212,175,55,0.12),transparent_60%)] [animation-duration:5s]" />
           <div className="pointer-events-none absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_80%_70%,rgba(217,169,160,0.1),transparent_55%)] [animation-duration:7s] [animation-delay:1.5s]" />
           <BlurFade delay={0.1}>
@@ -89,23 +99,34 @@ export default function Home() {
             </p>
           </BlurFade>
           <BlurFade>
-            <div className="rounded-3xl border border-primary/20 bg-card p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 md:p-14">
-              <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                4 500 DH <span className="text-primary/60 line-through">5 500 DH</span>
-              </span>
-              <h3 className="mb-4 font-heading text-3xl font-semibold text-primary">
-                Maquillage Professionnel — Makeup Artist
-              </h3>
-              <p className="max-w-2xl text-muted-foreground">
-                Techniques mariée, soirée et éditorial, produits professionnels, posture
-                business pour démarrer en freelance. 12 séances, certificat à la clé.
-              </p>
-              <a
-                href="#sessions"
-                className="mt-6 inline-block cursor-pointer rounded-full border border-primary/40 px-6 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                Voir les sessions & tarifs
-              </a>
+            <div className="grid items-center gap-0 overflow-hidden rounded-3xl border border-primary/20 bg-card transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 md:grid-cols-2">
+              <div className="relative h-48 w-full sm:h-64 md:order-2 md:h-full md:min-h-[320px]">
+                <Image
+                  src="/generated/products.png"
+                  alt="Kit de maquillage professionnel utilisé en formation"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8 sm:p-10 md:order-1 md:p-14">
+                <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  4 500 DH <span className="text-primary/60 line-through">5 500 DH</span>
+                </span>
+                <h3 className="mb-4 font-heading text-3xl font-semibold text-primary">
+                  Maquillage Professionnel — Makeup Artist
+                </h3>
+                <p className="max-w-2xl text-muted-foreground">
+                  Techniques mariée, soirée et éditorial, produits professionnels, posture
+                  business pour démarrer en freelance. 12 séances, certificat à la clé.
+                </p>
+                <a
+                  href="#sessions"
+                  className="mt-6 inline-block cursor-pointer rounded-full border border-primary/40 px-6 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                >
+                  Voir les sessions & tarifs
+                </a>
+              </div>
             </div>
           </BlurFade>
 

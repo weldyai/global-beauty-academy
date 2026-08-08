@@ -33,6 +33,21 @@ export const metadata: Metadata = {
     title: "Formation Maquillage en Ligne au Maroc | Global Beauty Academy",
     description:
       "Devenez maquilleuse professionnelle depuis chez vous, où que vous soyez au Maroc — formation en ligne certifiante encadrée par des formatrices expertes.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1024,
+        height: 576,
+        alt: "Global Beauty Academy — Formation Maquillage en Ligne au Maroc",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Formation Maquillage en Ligne au Maroc | Global Beauty Academy",
+    description:
+      "Devenez maquilleuse professionnelle depuis chez vous, où que vous soyez au Maroc — formation en ligne certifiante encadrée par des formatrices expertes.",
+    images: ["/og-image.png"],
   },
 };
 

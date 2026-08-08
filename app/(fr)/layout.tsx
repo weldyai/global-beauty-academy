@@ -41,6 +41,21 @@ export const metadata: Metadata = {
     title: "Formation Makeup Artist Casablanca | Global Beauty Academy",
     description:
       "Devenez Makeup Artist certifiée à Casablanca — 4 500 DH, 12 séances, cours accéléré ou week-end.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1024,
+        height: 576,
+        alt: "Global Beauty Academy — Formation Makeup Artist à Casablanca",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Formation Makeup Artist Casablanca | Global Beauty Academy",
+    description:
+      "Devenez Makeup Artist certifiée à Casablanca — 4 500 DH, 12 séances, cours accéléré ou week-end.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -84,7 +99,11 @@ const jsonLd = {
       { "@type": "Course", name: "Onglerie & Nail Art" },
     ],
   },
-  sameAs: ["https://web.facebook.com/gbaacademy/"],
+  sameAs: [
+    "https://web.facebook.com/gbaacademy/",
+    "https://www.instagram.com/gbamaroc/",
+    "https://www.tiktok.com/@global.beauty.academy",
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

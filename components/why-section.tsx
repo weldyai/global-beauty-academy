@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Marquee } from "@/components/ui/marquee";
 
@@ -13,6 +14,7 @@ const content = {
       { title: "Petits effectifs", desc: "Suivi personnalisé, pratique intensive sur modèles." },
     ],
     partnersLabel: "Marques utilisées en formation",
+    imgAlt: "Salle de formation moderne de Global Beauty Academy à Casablanca",
   },
   ar: {
     title: "لماذا تختارين أكاديمية جلوبال بيوتي",
@@ -25,6 +27,7 @@ const content = {
       { title: "أفواج مصغرة", desc: "تتبع شخصي، تمرين مكثف على موديلات حقيقية." },
     ],
     partnersLabel: "الماركات المستخدمة في التكوين",
+    imgAlt: "قاعة تكوين عصرية بأكاديمية جلوبال بيوتي بالدار البيضاء",
   },
 };
 
@@ -40,19 +43,32 @@ export function WhySection({ lang = "fr" }: { lang?: "fr" | "ar" }) {
         </h2>
         <p className="mx-auto mb-14 max-w-xl text-center text-muted-foreground">{t.subtitle}</p>
       </BlurFade>
-      <div className="grid gap-6 sm:grid-cols-2">
-        {t.points.map((p, i) => (
-          <BlurFade key={p.title} delay={0.08 * i}>
-            <div className="rounded-2xl border border-primary/10 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/5">
-              <h3
-                className={`mb-2 font-heading text-lg font-semibold ${i % 2 === 0 ? "text-primary" : "text-accent"}`}
-              >
-                {p.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">{p.desc}</p>
-            </div>
-          </BlurFade>
-        ))}
+      <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        <BlurFade>
+          <div className="relative h-64 overflow-hidden rounded-2xl border border-primary/15 md:h-full md:min-h-[360px]">
+            <Image
+              src="/generated/classroom.png"
+              alt={t.imgAlt}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </BlurFade>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {t.points.map((p, i) => (
+            <BlurFade key={p.title} delay={0.08 * i}>
+              <div className="rounded-2xl border border-primary/10 bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/5">
+                <h3
+                  className={`mb-2 font-heading text-lg font-semibold ${i % 2 === 0 ? "text-primary" : "text-accent"}`}
+                >
+                  {p.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{p.desc}</p>
+              </div>
+            </BlurFade>
+          ))}
+        </div>
       </div>
       <BlurFade delay={0.2}>
         <div className="mt-16 border-t border-accent/20 pt-10 text-center">

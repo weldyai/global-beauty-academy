@@ -74,8 +74,11 @@ export function FloatingSeatsBar({ lang = "fr" }: { lang?: "fr" | "ar" }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: isAr ? -12 : 12, pointerEvents: "none" }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed bottom-6 z-50 rounded-2xl border border-primary/25 bg-background/90 px-4 py-3 shadow-2xl shadow-black/30 backdrop-blur-lg"
-            style={{ [side]: 96 } as React.CSSProperties}
+            className="fixed z-50 w-[min(220px,calc(100vw-112px))] rounded-2xl border border-primary/25 bg-background/90 px-4 py-3 shadow-2xl shadow-black/30 backdrop-blur-lg"
+            style={{
+              [side]: `calc(96px + env(safe-area-inset-${side}))`,
+              bottom: "calc(24px + env(safe-area-inset-bottom))",
+            } as React.CSSProperties}
           >
             <div className="mb-1.5 flex items-center gap-1.5">
               <span className="relative flex size-2">
@@ -107,9 +110,10 @@ export function FloatingSeatsBar({ lang = "fr" }: { lang?: "fr" | "ar" }) {
       <a
         href="https://wa.me/212666808222"
         aria-label="WhatsApp"
-        className="wa-float fixed bottom-6 z-50 flex size-14 items-center justify-center rounded-full text-white transition-transform hover:scale-110"
+        className="wa-float fixed z-50 flex size-14 items-center justify-center rounded-full text-white transition-transform hover:scale-110"
         style={{
-          [side]: 20,
+          [side]: `max(20px, env(safe-area-inset-${side}))`,
+          bottom: "calc(24px + env(safe-area-inset-bottom))",
           background: "linear-gradient(135deg, #25d366, #128c7e)",
         } as React.CSSProperties}
       >

@@ -37,6 +37,20 @@ export const metadata: Metadata = {
     siteName: "Global Beauty Academy",
     title: "تكوين Makeup Artist بالدار البيضاء | أكاديمية جلوبال بيوتي",
     description: "كوني Makeup Artist معتمدة بالدار البيضاء — 4500 درهم، 12 حصة.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1024,
+        height: 576,
+        alt: "أكاديمية جلوبال بيوتي — تكوين Makeup Artist بالدار البيضاء",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "تكوين Makeup Artist بالدار البيضاء | أكاديمية جلوبال بيوتي",
+    description: "كوني Makeup Artist معتمدة بالدار البيضاء — 4500 درهم، 12 حصة.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -79,7 +93,11 @@ const jsonLd = {
       { "@type": "Course", name: "فن الأظافر (Nail Art)" },
     ],
   },
-  sameAs: ["https://web.facebook.com/gbaacademy/"],
+  sameAs: [
+    "https://web.facebook.com/gbaacademy/",
+    "https://www.instagram.com/gbamaroc/",
+    "https://www.tiktok.com/@global.beauty.academy",
+  ],
 };
 
 export default function ArLayout({ children }: { children: React.ReactNode }) {
