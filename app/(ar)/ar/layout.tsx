@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "تكوين Makeup Artist بالدار البيضاء | أكاديمية جلوبال بيوتي",
   description:
-    "تكوين مكياج احترافي معتمد بالدار البيضاء (عين الشق) — 4500 درهم، 12 حصة، أستاذات خبيرات، مواكبة نحو الإدماج المهني. دورة عادية أو عطلة نهاية الأسبوع. تصفيف الشعر وفن الأظافر كخيارات إضافية.",
+    "تكوين مكياج احترافي معتمد بالدار البيضاء (سيدي معروف) — 4500 درهم، 12 حصة، أستاذات خبيرات، مواكبة نحو الإدماج المهني. دورة عادية أو عطلة نهاية الأسبوع. تصفيف الشعر وفن الأظافر كخيارات إضافية.",
   alternates: {
     canonical: "/ar",
     languages: {
@@ -64,14 +64,15 @@ const jsonLd = {
   description: "أكاديمية تكوين احترافي في المكياج (Makeup Artist) وتصفيف الشعر وفن الأظافر بالدار البيضاء.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "شارع أبو بكر القادري، 11",
-    addressLocality: "عين الشق، الدار البيضاء",
+    streetAddress: "شارع أبو بكر القادري، بانوراما أوفيس، عمارة 3، مكتب 6",
+    addressLocality: "سيدي معروف، الدار البيضاء",
+    postalCode: "20200",
     addressCountry: "MA",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 33.527599,
-    longitude: -7.6493,
+    latitude: 33.5270154,
+    longitude: -7.6495321,
   },
   areaServed: ["الدار البيضاء", "الرباط", "مراكش", "المغرب"],
   hasOfferCatalog: {

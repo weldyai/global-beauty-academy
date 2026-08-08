@@ -44,12 +44,14 @@ export function SiteFooter({ lang = "fr" }: { lang?: "fr" | "ar" }) {
             {isAr ? "العنوان" : "Adresse"}
           </p>
           <a
-            href="https://maps.google.com/?q=33.527599,-7.649300"
+            href="https://maps.google.com/?q=33.5270154,-7.6495321"
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer hover:text-primary"
           >
-            Avenue Abou Bakr el Kadiri, 11, Aîn-Chock, Casablanca
+            {isAr
+              ? "شارع أبو بكر القادري، بانوراما أوفيس، عمارة 3، مكتب 6، سيدي معروف، الدار البيضاء"
+              : "Bd Abou Bakr El Kadiri, Panorama Offices, Immeuble 3, Bureau 6, Sidi Maarouf, Casablanca"}
           </a>
         </div>
         <div className="text-sm text-muted-foreground">

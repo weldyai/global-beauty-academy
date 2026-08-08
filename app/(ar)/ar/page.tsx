@@ -39,7 +39,7 @@ export default function HomeAr() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[70%_20%] opacity-55 md:object-center md:opacity-30"
+            className="object-cover object-[42%_38%] opacity-60 md:object-center md:opacity-30"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/15 via-background/65 to-background md:from-background/40 md:via-background/80" />
           <div className="pointer-events-none absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_50%_20%,rgba(212,175,55,0.12),transparent_60%)] [animation-duration:5s]" />
@@ -58,7 +58,7 @@ export default function HomeAr() {
           </BlurFade>
           <BlurFade delay={0.3}>
             <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-              أكاديمية جلوبال بيوتي (GBA) تكوّن خبيرات المكياج الاحترافي بعين الشق، الدار
+              أكاديمية جلوبال بيوتي (GBA) تكوّن خبيرات المكياج الاحترافي بسيدي معروف، الدار
               البيضاء — تكوين معتمد، وسائل تقنية كاملة، مواكبة نحو الإدماج المهني. تصفيف
               الشعر وفن الأظافر كخيارات إضافية.
             </p>

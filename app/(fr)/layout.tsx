@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Global Beauty Academy",
   },
   description:
-    "Formation Makeup Artist certifiante à Casablanca (Aîn-Chock) — 4 500 DH, 12 séances, formatrices expertes, insertion pro accompagnée. Cours accéléré ou week-end. Coiffure et onglerie/nail art en option.",
+    "Formation Makeup Artist certifiante à Casablanca (Sidi Maarouf) — 4 500 DH, 12 séances, formatrices expertes, insertion pro accompagnée. Cours accéléré ou week-end. Coiffure et onglerie/nail art en option.",
   alternates: {
     canonical: "/",
     languages: {
@@ -70,14 +70,15 @@ const jsonLd = {
     "Académie de formation professionnelle en maquillage (makeup artist), coiffure et onglerie/nail art à Casablanca.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Avenue Abou Bakr el Kadiri, 11",
-    addressLocality: "Aîn-Chock, Casablanca",
+    streetAddress: "Bd Abou Bakr El Kadiri, Panorama Offices, Immeuble 3, Bureau 6",
+    addressLocality: "Sidi Maarouf, Casablanca",
+    postalCode: "20200",
     addressCountry: "MA",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 33.527599,
-    longitude: -7.6493,
+    latitude: 33.5270154,
+    longitude: -7.6495321,
   },
   areaServed: ["Casablanca", "Rabat", "Marrakech", "Maroc"],
   hasOfferCatalog: {
