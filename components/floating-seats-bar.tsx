@@ -52,13 +52,22 @@ export function FloatingSeatsBar({ lang = "fr" }: { lang?: "fr" | "ar" }) {
   }, []);
 
   useEffect(() => {
-    const target = document.getElementById("sessions");
-    if (!target) return;
+    const targets = ["formations", "sessions"]
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (targets.length === 0) return;
+    const visible = new Set<Element>();
     const observer = new IntersectionObserver(
-      ([entry]) => setHidden(entry.isIntersecting),
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        }
+        setHidden(visible.size > 0);
+      },
       { rootMargin: "-10% 0px -10% 0px" }
     );
-    observer.observe(target);
+    targets.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
